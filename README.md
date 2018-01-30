@@ -1,0 +1,2 @@
+# BFLCoinManager
+BitFlyerApi マネージャー
