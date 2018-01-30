@@ -14,6 +14,9 @@
 		40A2D9F720207D0900D4D081 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40A2D9F520207D0900D4D081 /* LaunchScreen.storyboard */; };
 		40A2DA0220207D0900D4D081 /* BFLCoinManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A2DA0120207D0900D4D081 /* BFLCoinManagerTests.swift */; };
 		40A2DA0D20207D0A00D4D081 /* BFLCoinManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A2DA0C20207D0A00D4D081 /* BFLCoinManagerUITests.swift */; };
+		6C3E106085215C9ACF99197A /* Pods_BFLCoinManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDFB8903B6C7B12B2D4F8BD /* Pods_BFLCoinManager.framework */; };
+		8740F5730100465F82C7D205 /* Pods_BFLCoinManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCDC71A59420709A9FCD7E9 /* Pods_BFLCoinManagerUITests.framework */; };
+		8F0C39E920DE3B2FCCFA9467 /* Pods_BFLCoinManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84EABC44BDCB68DB8A8BE33 /* Pods_BFLCoinManagerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		376AA0E3971F8761ED5BF1C3 /* Pods-BFLCoinManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManager/Pods-BFLCoinManager.debug.xcconfig"; sourceTree = "<group>"; };
+		3D2A04B25B0379E3468BDD47 /* Pods-BFLCoinManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManagerTests/Pods-BFLCoinManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		40A2D9E920207D0900D4D081 /* BFLCoinManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFLCoinManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A2D9EC20207D0900D4D081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40A2D9EE20207D0900D4D081 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +52,13 @@
 		40A2DA0820207D0900D4D081 /* BFLCoinManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BFLCoinManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A2DA0C20207D0A00D4D081 /* BFLCoinManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFLCoinManagerUITests.swift; sourceTree = "<group>"; };
 		40A2DA0E20207D0A00D4D081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A477919A853105DF072DE60 /* Pods-BFLCoinManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManagerUITests/Pods-BFLCoinManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		73E30634BEBF1ED5B736127B /* Pods-BFLCoinManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManager/Pods-BFLCoinManager.release.xcconfig"; sourceTree = "<group>"; };
+		811E9B607C726F309787371E /* Pods-BFLCoinManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManagerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManagerUITests/Pods-BFLCoinManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BDDFB8903B6C7B12B2D4F8BD /* Pods_BFLCoinManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFLCoinManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D84EABC44BDCB68DB8A8BE33 /* Pods_BFLCoinManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFLCoinManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFCDC71A59420709A9FCD7E9 /* Pods_BFLCoinManagerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFLCoinManagerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E48AD0AEA67C228BAB9BB16E /* Pods-BFLCoinManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManagerTests/Pods-BFLCoinManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C3E106085215C9ACF99197A /* Pods_BFLCoinManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F0C39E920DE3B2FCCFA9467 /* Pods_BFLCoinManagerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8740F5730100465F82C7D205 /* Pods_BFLCoinManagerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		165A8EA9028796B2992BE63C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				376AA0E3971F8761ED5BF1C3 /* Pods-BFLCoinManager.debug.xcconfig */,
+				73E30634BEBF1ED5B736127B /* Pods-BFLCoinManager.release.xcconfig */,
+				3D2A04B25B0379E3468BDD47 /* Pods-BFLCoinManagerTests.debug.xcconfig */,
+				E48AD0AEA67C228BAB9BB16E /* Pods-BFLCoinManagerTests.release.xcconfig */,
+				811E9B607C726F309787371E /* Pods-BFLCoinManagerUITests.debug.xcconfig */,
+				5A477919A853105DF072DE60 /* Pods-BFLCoinManagerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		40A2D9E020207D0900D4D081 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +109,8 @@
 				40A2DA0020207D0900D4D081 /* BFLCoinManagerTests */,
 				40A2DA0B20207D0A00D4D081 /* BFLCoinManagerUITests */,
 				40A2D9EA20207D0900D4D081 /* Products */,
+				165A8EA9028796B2992BE63C /* Pods */,
+				DF6765536B01F7C466B49276 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +155,16 @@
 			path = BFLCoinManagerUITests;
 			sourceTree = "<group>";
 		};
+		DF6765536B01F7C466B49276 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDDFB8903B6C7B12B2D4F8BD /* Pods_BFLCoinManager.framework */,
+				D84EABC44BDCB68DB8A8BE33 /* Pods_BFLCoinManagerTests.framework */,
+				DFCDC71A59420709A9FCD7E9 /* Pods_BFLCoinManagerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40A2DA1120207D0A00D4D081 /* Build configuration list for PBXNativeTarget "BFLCoinManager" */;
 			buildPhases = (
+				D967E116E4B84EF8CF678454 /* [CP] Check Pods Manifest.lock */,
 				40A2D9E520207D0900D4D081 /* Sources */,
 				40A2D9E620207D0900D4D081 /* Frameworks */,
 				40A2D9E720207D0900D4D081 /* Resources */,
+				F04F9F4F200CE72ADF435449 /* [CP] Embed Pods Frameworks */,
+				7863A18CA5D4788D19B59552 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40A2DA1420207D0A00D4D081 /* Build configuration list for PBXNativeTarget "BFLCoinManagerTests" */;
 			buildPhases = (
+				BEDAB3C579DD8D40B4D2E178 /* [CP] Check Pods Manifest.lock */,
 				40A2D9F920207D0900D4D081 /* Sources */,
 				40A2D9FA20207D0900D4D081 /* Frameworks */,
 				40A2D9FB20207D0900D4D081 /* Resources */,
+				810933D424B7AECB648FADAE /* [CP] Embed Pods Frameworks */,
+				96A86C796BE929912A13456E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40A2DA1720207D0A00D4D081 /* Build configuration list for PBXNativeTarget "BFLCoinManagerUITests" */;
 			buildPhases = (
+				01161E134B4864DD344DC8C8 /* [CP] Check Pods Manifest.lock */,
 				40A2DA0420207D0900D4D081 /* Sources */,
 				40A2DA0520207D0900D4D081 /* Frameworks */,
 				40A2DA0620207D0900D4D081 /* Resources */,
+				15AFFCD7D3EAB3197A111B0B /* [CP] Embed Pods Frameworks */,
+				973CEEB76FF5B798BD60C5C2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +302,156 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01161E134B4864DD344DC8C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BFLCoinManagerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15AFFCD7D3EAB3197A111B0B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BFLCoinManagerUITests/Pods-BFLCoinManagerUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7863A18CA5D4788D19B59552 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BFLCoinManager/Pods-BFLCoinManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		810933D424B7AECB648FADAE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BFLCoinManagerTests/Pods-BFLCoinManagerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96A86C796BE929912A13456E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BFLCoinManagerTests/Pods-BFLCoinManagerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		973CEEB76FF5B798BD60C5C2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BFLCoinManagerUITests/Pods-BFLCoinManagerUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEDAB3C579DD8D40B4D2E178 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BFLCoinManagerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D967E116E4B84EF8CF678454 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BFLCoinManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F04F9F4F200CE72ADF435449 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BFLCoinManager/Pods-BFLCoinManager-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BFLCoinManager/Pods-BFLCoinManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		40A2D9E520207D0900D4D081 /* Sources */ = {
@@ -424,10 +623,12 @@
 		};
 		40A2DA1220207D0A00D4D081 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 376AA0E3971F8761ED5BF1C3 /* Pods-BFLCoinManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BFLCoinManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "archive-asia.BFLCoinManager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -438,10 +639,12 @@
 		};
 		40A2DA1320207D0A00D4D081 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73E30634BEBF1ED5B736127B /* Pods-BFLCoinManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BFLCoinManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "archive-asia.BFLCoinManager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -452,6 +655,7 @@
 		};
 		40A2DA1520207D0A00D4D081 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D2A04B25B0379E3468BDD47 /* Pods-BFLCoinManagerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -468,6 +672,7 @@
 		};
 		40A2DA1620207D0A00D4D081 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E48AD0AEA67C228BAB9BB16E /* Pods-BFLCoinManagerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,6 +689,7 @@
 		};
 		40A2DA1820207D0A00D4D081 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 811E9B607C726F309787371E /* Pods-BFLCoinManagerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -499,6 +705,7 @@
 		};
 		40A2DA1920207D0A00D4D081 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A477919A853105DF072DE60 /* Pods-BFLCoinManagerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
