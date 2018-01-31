@@ -11,15 +11,17 @@ import PubNub
 
 final class BFLCoinManager {
     
-    var realtimeApi : BFCoinRealtimeAPI
-    var realtimeClient : PubNub
+    var requestAPi      : BFCoinAPI
+    var realtimeApi     : BFCoinRealtimeAPI
+    var realtimeClient  : PubNub
     
-    var context : Dictionary?
+    //var context : Dictionary?
     static let sharedManager: BFLCoinManager = BFLCoinManager()
     
     private init() {
         
         //setup realtime client
+        self.requestAPi = BFCoinAPI()
         self.realtimeClient = BFCoinRealtimeAPI.setupClient()
         self.realtimeApi = BFCoinRealtimeAPI(self.realtimeClient)
     }

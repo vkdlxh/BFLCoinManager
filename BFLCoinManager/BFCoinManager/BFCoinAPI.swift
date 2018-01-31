@@ -31,12 +31,19 @@ final class BFCoinAPI {
     ]
     
      //リクエスト処理の生成
-    fileprivate class func createRequest(url:String, parameters: Parameters? = nil) -> Alamofire.DataRequest {
+    private class func createRequest(url:String, parameters: Parameters? = nil) -> Alamofire.DataRequest {
+    
         return Alamofire.request("\(Host)\(url)",
-            method:Alamofire.HTTPMethod.get,
-            parameters: parameters,
-            encoding: JSONEncoding.default,
-            headers: BFCoinAPI.CommonHeaders).validate()
+                    method:.get,
+                    parameters: parameters,
+                    encoding: JSONEncoding.default,
+                    headers: BFCoinAPI.CommonHeaders).validate()
+        
+//        return Alamofire.request("\(Host)\(url)",
+//            method:.get,
+//            parameters: parameters,
+//            encoding: JSONEncoding.default,
+//            headers: BFCoinAPI.CommonHeaders).validate()
     }
     
     //マーケットの一覧
@@ -88,7 +95,7 @@ final class BFCoinAPI {
     }
     
      //約定履歴
-    static func requestExecutions(_ productCode: String?, before: String?, after: String?, count: String) -> Void {
+    static func requestExecutions(_ productCode: String?, before: String?, after: String?, count: Int?) -> Void {
         
         let parameters = (productCode == nil) ? nil : ["product_code":productCode as Any]
         
@@ -146,7 +153,17 @@ final class BFCoinAPI {
     //取引所の状態
     static func requestCharts(_ fromDate: Date?) -> Void {
         
-        let parameters = (fromDate == nil) ? nil : ["from_date":fromDate as Any]
+        var dateString : String? = nil
+        
+        if let chartDate = fromDate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+            dateString = dateFormatter.string(from: chartDate)
+        }
+        
+        let parameters = (dateString == nil) ? nil : ["from_date":dateString as Any]
         
         self.createRequest(url: "/getchats", parameters: parameters).responseJSON { response in
             
