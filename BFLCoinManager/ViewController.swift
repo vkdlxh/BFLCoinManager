@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+//      BFCoinAPI.requestMarket()
+//        BFCoinAPI.requestBoard("ETH_BTC")
+        //BFCoinAPI.requestTicker(nil)
+        //BFCoinAPI.requestHealth("ETH_BTC")
+        
+//        real.registMarketChannel("BTC_JPY")
     }
 
     override func didReceiveMemoryWarning() {

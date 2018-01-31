@@ -8,7 +8,7 @@ target 'BFLCoinManager' do
   # Pods for BFLCoinManager
 
   pod 'Alamofire', '~> 4.5'
-
+  pod 'PubNub', '~> 4'
   
   target 'BFLCoinManagerTests' do
     inherit! :search_paths

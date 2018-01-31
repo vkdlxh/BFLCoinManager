@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		408C1F152020B44F0066E680 /* BFCoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C1F132020B44F0066E680 /* BFCoinAPI.swift */; };
+		408C1F162020B44F0066E680 /* BFCoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C1F142020B44F0066E680 /* BFCoinManager.swift */; };
+		408C1F182020C8450066E680 /* BFCoinRealtimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C1F172020C8450066E680 /* BFCoinRealtimeAPI.swift */; };
+		408C1F1F202151340066E680 /* AppDelegate+RealtimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C1F1E202151340066E680 /* AppDelegate+RealtimeAPI.swift */; };
+		408C1F2320215B9E0066E680 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C1F2220215B9E0066E680 /* Market.swift */; };
 		40A2D9ED20207D0900D4D081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A2D9EC20207D0900D4D081 /* AppDelegate.swift */; };
 		40A2D9EF20207D0900D4D081 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A2D9EE20207D0900D4D081 /* ViewController.swift */; };
 		40A2D9F220207D0900D4D081 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40A2D9F020207D0900D4D081 /* Main.storyboard */; };
@@ -39,6 +44,12 @@
 /* Begin PBXFileReference section */
 		376AA0E3971F8761ED5BF1C3 /* Pods-BFLCoinManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManager/Pods-BFLCoinManager.debug.xcconfig"; sourceTree = "<group>"; };
 		3D2A04B25B0379E3468BDD47 /* Pods-BFLCoinManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManagerTests/Pods-BFLCoinManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		408C1F132020B44F0066E680 /* BFCoinAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BFCoinAPI.swift; sourceTree = "<group>"; };
+		408C1F142020B44F0066E680 /* BFCoinManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BFCoinManager.swift; sourceTree = "<group>"; };
+		408C1F172020C8450066E680 /* BFCoinRealtimeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFCoinRealtimeAPI.swift; sourceTree = "<group>"; };
+		408C1F1B2020CB320066E680 /* BFLCoinManager-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BFLCoinManager-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		408C1F1E202151340066E680 /* AppDelegate+RealtimeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+RealtimeAPI.swift"; sourceTree = "<group>"; };
+		408C1F2220215B9E0066E680 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
 		40A2D9E920207D0900D4D081 /* BFLCoinManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFLCoinManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A2D9EC20207D0900D4D081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40A2D9EE20207D0900D4D081 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +113,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		408C1F122020B44F0066E680 /* BFCoinManager */ = {
+			isa = PBXGroup;
+			children = (
+				408C1F2120215B570066E680 /* Model */,
+				408C1F1E202151340066E680 /* AppDelegate+RealtimeAPI.swift */,
+				408C1F142020B44F0066E680 /* BFCoinManager.swift */,
+				408C1F132020B44F0066E680 /* BFCoinAPI.swift */,
+				408C1F172020C8450066E680 /* BFCoinRealtimeAPI.swift */,
+			);
+			path = BFCoinManager;
+			sourceTree = "<group>";
+		};
+		408C1F2120215B570066E680 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				408C1F2220215B9E0066E680 /* Market.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		40A2D9E020207D0900D4D081 = {
 			isa = PBXGroup;
 			children = (
@@ -127,12 +158,14 @@
 		40A2D9EB20207D0900D4D081 /* BFLCoinManager */ = {
 			isa = PBXGroup;
 			children = (
+				408C1F1B2020CB320066E680 /* BFLCoinManager-Bridging-Header.h */,
 				40A2D9EC20207D0900D4D081 /* AppDelegate.swift */,
 				40A2D9EE20207D0900D4D081 /* ViewController.swift */,
 				40A2D9F020207D0900D4D081 /* Main.storyboard */,
 				40A2D9F320207D0900D4D081 /* Assets.xcassets */,
 				40A2D9F520207D0900D4D081 /* LaunchScreen.storyboard */,
 				40A2D9F820207D0900D4D081 /* Info.plist */,
+				408C1F122020B44F0066E680 /* BFCoinManager */,
 			);
 			path = BFLCoinManager;
 			sourceTree = "<group>";
@@ -441,10 +474,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BFLCoinManager/Pods-BFLCoinManager-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PubNub/PubNub.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PubNub.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -458,8 +493,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408C1F1F202151340066E680 /* AppDelegate+RealtimeAPI.swift in Sources */,
 				40A2D9EF20207D0900D4D081 /* ViewController.swift in Sources */,
+				408C1F2320215B9E0066E680 /* Market.swift in Sources */,
 				40A2D9ED20207D0900D4D081 /* AppDelegate.swift in Sources */,
+				408C1F162020B44F0066E680 /* BFCoinManager.swift in Sources */,
+				408C1F152020B44F0066E680 /* BFCoinAPI.swift in Sources */,
+				408C1F182020C8450066E680 /* BFCoinRealtimeAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +672,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "archive-asia.BFLCoinManager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BFLCoinManager-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -648,6 +689,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "archive-asia.BFLCoinManager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BFLCoinManager-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
