@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4032A9A62021E16A0050D3E7 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032A9A52021E16A0050D3E7 /* Board.swift */; };
+		4032A9A82021E5490050D3E7 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032A9A72021E5490050D3E7 /* Ticker.swift */; };
+		4032A9AA2021E6730050D3E7 /* Execution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032A9A92021E6730050D3E7 /* Execution.swift */; };
+		4032A9AC2021EE760050D3E7 /* BoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032A9AB2021EE760050D3E7 /* BoardState.swift */; };
+		4032A9AE2021F0FD0050D3E7 /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032A9AD2021F0FD0050D3E7 /* Health.swift */; };
+		4032A9B02021F12A0050D3E7 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032A9AF2021F12A0050D3E7 /* Chat.swift */; };
 		408C1F152020B44F0066E680 /* BFCoinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C1F132020B44F0066E680 /* BFCoinAPI.swift */; };
 		408C1F162020B44F0066E680 /* BFCoinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C1F142020B44F0066E680 /* BFCoinManager.swift */; };
 		408C1F182020C8450066E680 /* BFCoinRealtimeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408C1F172020C8450066E680 /* BFCoinRealtimeAPI.swift */; };
@@ -44,6 +50,12 @@
 /* Begin PBXFileReference section */
 		376AA0E3971F8761ED5BF1C3 /* Pods-BFLCoinManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManager/Pods-BFLCoinManager.debug.xcconfig"; sourceTree = "<group>"; };
 		3D2A04B25B0379E3468BDD47 /* Pods-BFLCoinManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManagerTests/Pods-BFLCoinManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4032A9A52021E16A0050D3E7 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		4032A9A72021E5490050D3E7 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
+		4032A9A92021E6730050D3E7 /* Execution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Execution.swift; sourceTree = "<group>"; };
+		4032A9AB2021EE760050D3E7 /* BoardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardState.swift; sourceTree = "<group>"; };
+		4032A9AD2021F0FD0050D3E7 /* Health.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
+		4032A9AF2021F12A0050D3E7 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		408C1F132020B44F0066E680 /* BFCoinAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BFCoinAPI.swift; sourceTree = "<group>"; };
 		408C1F142020B44F0066E680 /* BFCoinManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BFCoinManager.swift; sourceTree = "<group>"; };
 		408C1F172020C8450066E680 /* BFCoinRealtimeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFCoinRealtimeAPI.swift; sourceTree = "<group>"; };
@@ -129,6 +141,12 @@
 			isa = PBXGroup;
 			children = (
 				408C1F2220215B9E0066E680 /* Market.swift */,
+				4032A9A52021E16A0050D3E7 /* Board.swift */,
+				4032A9A72021E5490050D3E7 /* Ticker.swift */,
+				4032A9A92021E6730050D3E7 /* Execution.swift */,
+				4032A9AB2021EE760050D3E7 /* BoardState.swift */,
+				4032A9AD2021F0FD0050D3E7 /* Health.swift */,
+				4032A9AF2021F12A0050D3E7 /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -493,12 +511,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4032A9B02021F12A0050D3E7 /* Chat.swift in Sources */,
 				408C1F1F202151340066E680 /* AppDelegate+RealtimeAPI.swift in Sources */,
+				4032A9AE2021F0FD0050D3E7 /* Health.swift in Sources */,
 				40A2D9EF20207D0900D4D081 /* ViewController.swift in Sources */,
 				408C1F2320215B9E0066E680 /* Market.swift in Sources */,
 				40A2D9ED20207D0900D4D081 /* AppDelegate.swift in Sources */,
+				4032A9A82021E5490050D3E7 /* Ticker.swift in Sources */,
 				408C1F162020B44F0066E680 /* BFCoinManager.swift in Sources */,
+				4032A9AA2021E6730050D3E7 /* Execution.swift in Sources */,
+				4032A9AC2021EE760050D3E7 /* BoardState.swift in Sources */,
 				408C1F152020B44F0066E680 /* BFCoinAPI.swift in Sources */,
+				4032A9A62021E16A0050D3E7 /* Board.swift in Sources */,
 				408C1F182020C8450066E680 /* BFCoinRealtimeAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

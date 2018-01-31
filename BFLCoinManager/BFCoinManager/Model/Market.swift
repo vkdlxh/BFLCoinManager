@@ -22,7 +22,7 @@ import Foundation
     }]
  */
 struct Market {
-    var productCode : String
-    var alias : String?
+    var productCode :String
+    var alias :String?
 }
 
