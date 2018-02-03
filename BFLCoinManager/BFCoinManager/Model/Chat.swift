@@ -16,7 +16,24 @@ import Foundation
  }
  */
 struct Chat {
-    var nickname: String
-    var message: String
-    var date: Date
+    var nickname: String?
+    var message: String?
+    var chatDate: Date?
+    
+    init(dictionary: Dictionary<String, Any>) {
+        
+        if let nickname = dictionary["nickname"] as? String {
+            self.nickname = nickname
+        }
+        
+        if let message = dictionary["message"] as? String {
+            self.message = message
+        }
+        
+        if let date = dictionary["date"] as? String {
+            if let chat_date = Date.stringDate(date) {
+                self.chatDate = chat_date
+            }
+        }
+    }
 }

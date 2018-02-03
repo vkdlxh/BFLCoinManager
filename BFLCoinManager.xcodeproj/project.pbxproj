@@ -25,6 +25,8 @@
 		40A2D9F720207D0900D4D081 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40A2D9F520207D0900D4D081 /* LaunchScreen.storyboard */; };
 		40A2DA0220207D0900D4D081 /* BFLCoinManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A2DA0120207D0900D4D081 /* BFLCoinManagerTests.swift */; };
 		40A2DA0D20207D0A00D4D081 /* BFLCoinManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A2DA0C20207D0A00D4D081 /* BFLCoinManagerUITests.swift */; };
+		40C5AD532025315400EE7203 /* BFContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5AD522025315400EE7203 /* BFContext.swift */; };
+		40C5AD5620254D2900EE7203 /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5AD5520254D2900EE7203 /* Date+Helper.swift */; };
 		6C3E106085215C9ACF99197A /* Pods_BFLCoinManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDFB8903B6C7B12B2D4F8BD /* Pods_BFLCoinManager.framework */; };
 		8740F5730100465F82C7D205 /* Pods_BFLCoinManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCDC71A59420709A9FCD7E9 /* Pods_BFLCoinManagerUITests.framework */; };
 		8F0C39E920DE3B2FCCFA9467 /* Pods_BFLCoinManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84EABC44BDCB68DB8A8BE33 /* Pods_BFLCoinManagerTests.framework */; };
@@ -75,6 +77,8 @@
 		40A2DA0820207D0900D4D081 /* BFLCoinManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BFLCoinManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A2DA0C20207D0A00D4D081 /* BFLCoinManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFLCoinManagerUITests.swift; sourceTree = "<group>"; };
 		40A2DA0E20207D0A00D4D081 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40C5AD522025315400EE7203 /* BFContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFContext.swift; sourceTree = "<group>"; };
+		40C5AD5520254D2900EE7203 /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
 		5A477919A853105DF072DE60 /* Pods-BFLCoinManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManagerUITests/Pods-BFLCoinManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73E30634BEBF1ED5B736127B /* Pods-BFLCoinManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManager/Pods-BFLCoinManager.release.xcconfig"; sourceTree = "<group>"; };
 		811E9B607C726F309787371E /* Pods-BFLCoinManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManagerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManagerUITests/Pods-BFLCoinManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,8 +132,10 @@
 		408C1F122020B44F0066E680 /* BFCoinManager */ = {
 			isa = PBXGroup;
 			children = (
+				40C5AD5420254D1600EE7203 /* Extension */,
 				408C1F2120215B570066E680 /* Model */,
 				408C1F1E202151340066E680 /* AppDelegate+RealtimeAPI.swift */,
+				40C5AD522025315400EE7203 /* BFContext.swift */,
 				408C1F142020B44F0066E680 /* BFCoinManager.swift */,
 				408C1F132020B44F0066E680 /* BFCoinAPI.swift */,
 				408C1F172020C8450066E680 /* BFCoinRealtimeAPI.swift */,
@@ -204,6 +210,14 @@
 				40A2DA0E20207D0A00D4D081 /* Info.plist */,
 			);
 			path = BFLCoinManagerUITests;
+			sourceTree = "<group>";
+		};
+		40C5AD5420254D1600EE7203 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				40C5AD5520254D2900EE7203 /* Date+Helper.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		DF6765536B01F7C466B49276 /* Frameworks */ = {
@@ -519,11 +533,13 @@
 				40A2D9ED20207D0900D4D081 /* AppDelegate.swift in Sources */,
 				4032A9A82021E5490050D3E7 /* Ticker.swift in Sources */,
 				408C1F162020B44F0066E680 /* BFCoinManager.swift in Sources */,
+				40C5AD5620254D2900EE7203 /* Date+Helper.swift in Sources */,
 				4032A9AA2021E6730050D3E7 /* Execution.swift in Sources */,
 				4032A9AC2021EE760050D3E7 /* BoardState.swift in Sources */,
 				408C1F152020B44F0066E680 /* BFCoinAPI.swift in Sources */,
 				4032A9A62021E16A0050D3E7 /* Board.swift in Sources */,
 				408C1F182020C8450066E680 /* BFCoinRealtimeAPI.swift in Sources */,
+				40C5AD532025315400EE7203 /* BFContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

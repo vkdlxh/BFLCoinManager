@@ -22,11 +22,45 @@ enum SideType : String {
     "sell_child_order_acceptance_id": "JRF20150708-024334-060234"
  */
 struct Execution {
-    var executionId :UInt64
-    var side :SideType
-    var price :Int
-    var size :Double
-    var exeDate :Date
-    var buyChildOrderAcceptanceId :String
-    var sellChildOrderAcceptanceId :String
+    var executionId :UInt64?
+    var side :SideType?
+    var price = 0
+    var size  = 0.0
+    var exeDate :Date?
+    var buyChildOrderAcceptanceId :String?
+    var sellChildOrderAcceptanceId :String?
+    
+    init(dictionary: Dictionary<String, Any>) {
+        
+        if let execution_id = dictionary["id"] as? UInt64 {
+            self.executionId = execution_id
+        }
+        
+        if let side = dictionary["side"] as? String {
+            self.side = SideType(rawValue: side) ?? nil
+        }
+        
+        if let price = dictionary["price"] as? Int {
+            self.price = price
+        }
+        
+        if let size = dictionary["size"] as? Double {
+            self.size = size
+        }
+        
+        if let exec_date = dictionary["exec_date"] as? String {
+            if let date = Date.stringDate(exec_date) {
+                self.exeDate = date
+            }
+        }
+        
+        if let buy_child_order_acceptance_id = dictionary["buy_child_order_acceptance_id"] as? String {
+            self.buyChildOrderAcceptanceId = buy_child_order_acceptance_id
+        }
+        
+        if let sell_child_order_acceptance_id = dictionary["sell_child_order_acceptance_id"] as? String {
+            self.sellChildOrderAcceptanceId = sell_child_order_acceptance_id
+        }
+        
+    }
 }

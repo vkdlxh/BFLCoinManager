@@ -35,7 +35,10 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let mgr = BFLCoinManager.sharedManager
+        mgr.addObserver(self)
         
+        BFLCoinManager.sharedManager.start()
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,25 +91,41 @@ extension ViewController : UITableViewDataSource {
             //Request
             switch indexPath.row {
             case 0:
-                BFCoinAPI.requestMarkets()
+                BFCoinAPI.requestMarkets({ (markets) in
+                    for market in markets {
+                        print(market)
+                    }
+                })
                 break
             case 1:
-                BFCoinAPI.requestBoard(nil)
+                BFCoinAPI.requestBoard(nil, completion: { (board) in
+                    //
+                })
                 break
             case 2:
-                BFCoinAPI.requestTicker(nil)
+                BFCoinAPI.requestTicker(nil, completion: { (ticker) in
+                    //
+                })
                 break
             case 3:
-                BFCoinAPI.requestExecutions(nil, before: nil, after: nil, count: nil)
+                BFCoinAPI.requestExecutions(nil, before: nil, after: nil, count: nil, completion: { (executions) in
+                    //
+                })
                 break
             case 4:
-                BFCoinAPI.requestBoardState(nil)
+                BFCoinAPI.requestBoardState(nil, completion: { (boardState) in
+                    //
+                })
                 break
             case 5:
-                BFCoinAPI.requestHealth(nil)
+                BFCoinAPI.requestHealth(nil, completion: { (health) in
+                    //
+                })
                 break
             case 6:
-                BFCoinAPI.requestCharts(Date())
+                BFCoinAPI.requestCharts(Date(), completion: {(chats) in
+                    //
+                })
                 break
             default: break
                 //
@@ -171,3 +190,10 @@ extension ViewController : UITableViewDataSource {
     }
 }
 
+extension ViewController : BFLCoinManagerDataChanged {
+    
+    func coinDataChanged(_ context:BFContext) {
+        print("context changed!!")
+        //print(context)
+    }
+}

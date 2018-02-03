@@ -22,7 +22,18 @@ import Foundation
     }]
  */
 struct Market {
-    var productCode :String
+    var productCode :String?
     var alias :String?
+    
+    init(dictionary: Dictionary<String, Any>) {
+        
+        if let product_code = dictionary["product_code"] as? String {
+            self.productCode = product_code
+        }
+        
+        if let alias = dictionary["alias"] as? String {
+            self.alias = alias
+        }
+    }
 }
 

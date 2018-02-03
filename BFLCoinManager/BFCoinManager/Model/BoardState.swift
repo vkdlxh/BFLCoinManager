@@ -35,8 +35,23 @@ enum StateType: String {
  }
  */
 struct BoardState {
-    var health: HealthType
-    var state: StateType
-    var data: [String:Any]
+    var health: HealthType?
+    var state: StateType?
+    var data: [String:Any]?
+    
+    init(dictionary: Dictionary<String, Any>) {
+        
+        if let health = dictionary["health"] as? String {
+            self.health = HealthType(rawValue: health)
+        }
+        
+        if let state = dictionary["state"] as? String {
+            self.state = StateType(rawValue: state)
+        }
+        
+        if let data = dictionary["data"] as? [String:Any] {
+            self.data = data
+        }
+    }
 }
 

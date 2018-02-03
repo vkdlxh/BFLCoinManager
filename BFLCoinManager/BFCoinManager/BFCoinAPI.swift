@@ -38,22 +38,25 @@ final class BFCoinAPI {
                     parameters: parameters,
                     encoding: JSONEncoding.default,
                     headers: BFCoinAPI.CommonHeaders).validate()
-        
-//        return Alamofire.request("\(Host)\(url)",
-//            method:.get,
-//            parameters: parameters,
-//            encoding: JSONEncoding.default,
-//            headers: BFCoinAPI.CommonHeaders).validate()
     }
     
     //マーケットの一覧
-    static func requestMarkets() -> Void {
+    static func requestMarkets(_ completion: @escaping (Array<Market>) ->Void) -> Void {
         
         self.createRequest(url: "/markets", parameters: nil).responseJSON { response in
             
-            if let JSON = response.result.value {
+            if let data = response.result.value {
                 print("Success with response")
-                print(JSON)
+                
+                var markets = Array<Market>()
+                for dict in data as! [[String:Any]] {
+                    let market = Market(dictionary: dict)
+                    //print(market)
+                    markets.append(market)
+                }
+                
+                completion(markets)
+            
             }else{
                 print("Error with response")
             }
@@ -61,15 +64,23 @@ final class BFCoinAPI {
     }
     
     //板情報
-    static func requestBoard(_ productCode: String?) -> Void {
+    static func requestBoard(_ productCode: String?, completion: @escaping (Board)->Void) -> Void {
         
         let parameters = (productCode == nil) ? nil : ["product_code":productCode as Any]
         
         self.createRequest(url: "/board", parameters: parameters).responseJSON { response in
             
-            if let JSON = response.result.value {
+            if let data = response.result.value {
                 print("Success with response")
-                print(JSON)
+                
+                guard let dict = data as? Dictionary<String,Any> else {
+                    return
+                }
+                
+                let board = Board(dictionary: dict)
+                
+                completion(board)
+                
             }else{
                 print("Error with response")
             }
@@ -78,15 +89,22 @@ final class BFCoinAPI {
     }
     
     //Ticker
-    static func requestTicker(_ productCode: String?) -> Void {
+    static func requestTicker(_ productCode: String?, completion: @escaping (Ticker)->Void) -> Void {
         
         let parameters = (productCode == nil) ? nil : ["product_code":productCode as Any]
         
         self.createRequest(url: "/ticker", parameters: parameters).responseJSON { response in
             
-            if let JSON = response.result.value {
+            if let data = response.result.value {
                 print("Success with response")
-                print(JSON)
+                
+                guard let dict = data as? Dictionary<String,Any> else {
+                    return
+                }
+                
+                let ticker = Ticker(dictionary: dict)
+                
+                completion(ticker)
             }else{
                 print("Error with response")
             }
@@ -95,7 +113,8 @@ final class BFCoinAPI {
     }
     
      //約定履歴
-    static func requestExecutions(_ productCode: String?, before: String?, after: String?, count: Int?) -> Void {
+    static func requestExecutions(_ productCode: String?, before: String?, after: String?, count: Int?,
+                                  completion:@escaping ([Execution])->Void) -> Void {
         
         let parameters = (productCode == nil) ? nil : ["product_code":productCode as Any]
         
@@ -106,9 +125,21 @@ final class BFCoinAPI {
          */
         self.createRequest(url: "/executions", parameters: parameters).responseJSON { response in
             
-            if let JSON = response.result.value {
+            if let data = response.result.value {
                 print("Success with response")
-                print(JSON)
+                
+                guard let items = data as? [Dictionary<String,Any>] else {
+                    return
+                }
+                
+                var executions = Array<Execution>()
+                for dict in items {
+                    let execution = Execution(dictionary: dict)
+                    executions.append(execution)
+                }
+                
+                completion(executions)
+                
             }else{
                 print("Error with response")
             }
@@ -117,15 +148,21 @@ final class BFCoinAPI {
     }
     
     //板の状態
-    static func requestBoardState(_ productCode: String?) -> Void {
+    static func requestBoardState(_ productCode: String?, completion: @escaping (BoardState)->Void) -> Void {
         
         let parameters = (productCode == nil) ? nil : ["product_code":productCode as Any]
         
         self.createRequest(url: "/getboardstate", parameters: parameters).responseJSON { response in
             
-            if let JSON = response.result.value {
+            if let data = response.result.value {
                 print("Success with response")
-                print(JSON)
+                guard let dict = data as? [String:Any] else {
+                    return
+                }
+                
+                let boardState = BoardState(dictionary: dict)
+                
+                completion(boardState)
             }else{
                 print("Error with response")
             }
@@ -134,15 +171,23 @@ final class BFCoinAPI {
     }
     
     //取引所の状態
-    static func requestHealth(_ productCode: String?) -> Void {
+    static func requestHealth(_ productCode: String?, completion: @escaping (Health)->Void) -> Void {
         
         let parameters = (productCode == nil) ? nil : ["product_code":productCode as Any]
         
         self.createRequest(url: "/gethealth", parameters: parameters).responseJSON { response in
             
-            if let JSON = response.result.value {
+            if let data = response.result.value {
                 print("Success with response")
-                print(JSON)
+                
+                guard let dict = data as? [String:Any] else {
+                    return
+                }
+                
+                let health = Health(dictionary: dict)
+                
+                completion(health)
+                
             }else{
                 print("Error with response")
             }
@@ -150,26 +195,32 @@ final class BFCoinAPI {
         
     }
     
-    //取引所の状態
-    static func requestCharts(_ fromDate: Date?) -> Void {
+    //チャット
+    static func requestCharts(_ fromDate: Date?, completion: @escaping ([Chat])->Void) -> Void {
         
-        var dateString : String? = nil
+        var parameters : [String:Any]? = nil
         
-        if let chartDate = fromDate {
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
-            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-            dateString = dateFormatter.string(from: chartDate)
+        if let dateString = fromDate?.dateString() {
+            parameters = ["from_date":dateString]
         }
-        
-        let parameters = (dateString == nil) ? nil : ["from_date":dateString as Any]
         
         self.createRequest(url: "/getchats", parameters: parameters).responseJSON { response in
             
-            if let JSON = response.result.value {
+            if let data = response.result.value {
                 print("Success with response")
-                print(JSON)
+                
+                guard let items = data as? [[String:Any]] else {
+                    return
+                }
+                
+                var chats = Array<Chat>()
+                for dict in items {
+                    let chat = Chat(dictionary: dict)
+                    chats.append(chat)
+                }
+                
+                completion(chats)
+                
             }else{
                 print("Error with response")
             }

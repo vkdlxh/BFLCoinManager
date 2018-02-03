@@ -20,13 +20,49 @@ import Foundation
          "size": 1.2}]}
  */
 struct Board {
-    var midPrice :Int
-    var bids :[Trade]
-    var asks :[Trade]
+    var midPrice = 0
+    var bids = [Rate]()
+    var asks = [Rate]()
+    
+    init(dictionary: Dictionary<String, Any>) {
+        
+        if let mid_price = dictionary["mid_price"] as? Int {
+            self.midPrice = mid_price
+        }
+        
+        if let items = dictionary["bids"] as? [Dictionary<String,Any>] {
+            for dict in items {
+                guard let price = dict["price"] as? Int else {
+                    continue
+                }
+                guard let size = dict["size"] as? Double else {
+                    continue
+                }
+                let rate = Rate(price: price, size: size)
+                self.bids.append(rate)
+            }
+        }
+        
+        if let items = dictionary["asks"] as? [Dictionary<String,Any>] {
+            
+            for dict in items {
+                guard let price = dict["price"] as? Int else {
+                    continue
+                }
+                guard let size = dict["size"] as? Double else {
+                    continue
+                }
+                let rate = Rate(price: price, size: size)
+                self.asks.append(rate)
+                
+            }
+        }
+        
+    }
 }
 
-struct Trade {
+struct Rate {
     var price :Int
-    var size :Int
+    var size :Double
 }
 

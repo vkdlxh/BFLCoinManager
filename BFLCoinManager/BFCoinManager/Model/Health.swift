@@ -9,5 +9,12 @@
 import Foundation
 
 struct Health {
-    var health: HealthType
+    var status: HealthType?
+    
+    init(dictionary: Dictionary<String, Any>) {
+        
+        if let status = dictionary["status"] as? String {
+            self.status = HealthType(rawValue: status)
+        }
+    }
 }
