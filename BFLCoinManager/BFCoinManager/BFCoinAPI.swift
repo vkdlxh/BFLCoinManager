@@ -21,7 +21,9 @@ import Alamofire
 final class BFCoinAPI {
     
     // ホスト名
-    private static let Host = "https://api.bitflyer.jp/v1"
+    private static let host = "https://api.bitflyer.jp/v1"
+    
+    
     
     // 共通ヘッダー
     static let CommonHeaders:HTTPHeaders = [
@@ -33,12 +35,14 @@ final class BFCoinAPI {
      //リクエスト処理の生成
     private class func createRequest(url:String, parameters: Parameters? = nil) -> Alamofire.DataRequest {
     
-        return Alamofire.request("\(Host)\(url)",
+        return Alamofire.request("\(host)\(url)",
                     method:.get,
                     parameters: parameters,
                     encoding: JSONEncoding.default,
                     headers: BFCoinAPI.CommonHeaders).validate()
     }
+    
+    
     
     //マーケットの一覧
     static func requestMarkets(_ completion: @escaping (Array<Market>) ->Void) -> Void {
@@ -196,7 +200,7 @@ final class BFCoinAPI {
     }
     
     //チャット
-    static func requestCharts(_ fromDate: Date?, completion: @escaping ([Chat])->Void) -> Void {
+    static func requestChats(_ fromDate: Date?, completion: @escaping ([Chat])->Void) -> Void {
         
         var parameters : [String:Any]? = nil
         
@@ -226,5 +230,65 @@ final class BFCoinAPI {
             }
         }
         
+    }
+}
+
+enum SupportChartCoin : String {
+    case BTC = "BTC"    //BitCoin
+    case ETH = "ETH"    //Ethereum
+    case BCH = "BCH"    //BitCoin Cash
+}
+
+extension BFCoinAPI {
+    
+    //Chartホスト名（過去テータ）
+    private static let chartHost = "https://min-api.cryptocompare.com/data"
+    
+    private class func createChrtRequest(url:String) -> Alamofire.DataRequest {
+        
+        return Alamofire.request("\(chartHost)\(url)",
+            method:.get,
+            parameters: nil,
+            encoding: JSONEncoding.default,
+            headers: BFCoinAPI.CommonHeaders).validate()
+    }
+    
+    static func requestCharts(_ productCode: String, completion: @escaping (ChartData)->Void) -> Void {
+
+        let valueCount = 24*5 //5日
+        let fsym = String(productCode[..<productCode.index(productCode.startIndex, offsetBy: 3)])
+        
+        if !(fsym == SupportChartCoin.BTC.rawValue
+            || fsym == SupportChartCoin.ETH.rawValue
+            || fsym == SupportChartCoin.BCH.rawValue) {
+                print("not support chart")
+                return
+        }
+        
+        //https://min-api.cryptocompare.com/data/histohour?fsym=BTC&tsym=JPY&limit=60&aggregate=1&e=BitFlyer
+        let parameterString = "fsym=\(fsym)&tsym=JPY&limit=\(valueCount)&aggregate=1&e=BitFlyer"
+
+        
+
+
+
+        //１時間足固定
+        self.createChrtRequest(url: "/histohour?\(parameterString)").responseJSON { response in
+            if let data = response.result.value {
+                print("Success with response")
+
+                guard let dict = data as? [String:Any] else {
+                    return
+                }
+                
+                let chartData = ChartData(dictionary: dict)
+                
+                completion(chartData)
+
+            }else{
+                print("Error with response")
+            }
+        }
+
     }
 }

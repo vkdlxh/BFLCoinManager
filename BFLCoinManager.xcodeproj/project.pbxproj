@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		401B2BAD20275B410053A7CE /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B2BAC20275B410053A7CE /* ChartData.swift */; };
 		4032A9A62021E16A0050D3E7 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032A9A52021E16A0050D3E7 /* Board.swift */; };
 		4032A9A82021E5490050D3E7 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032A9A72021E5490050D3E7 /* Ticker.swift */; };
 		4032A9AA2021E6730050D3E7 /* Execution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032A9A92021E6730050D3E7 /* Execution.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		376AA0E3971F8761ED5BF1C3 /* Pods-BFLCoinManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManager/Pods-BFLCoinManager.debug.xcconfig"; sourceTree = "<group>"; };
 		3D2A04B25B0379E3468BDD47 /* Pods-BFLCoinManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFLCoinManagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFLCoinManagerTests/Pods-BFLCoinManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		401B2BAC20275B410053A7CE /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		4032A9A52021E16A0050D3E7 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		4032A9A72021E5490050D3E7 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 		4032A9A92021E6730050D3E7 /* Execution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Execution.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				4032A9AB2021EE760050D3E7 /* BoardState.swift */,
 				4032A9AD2021F0FD0050D3E7 /* Health.swift */,
 				4032A9AF2021F12A0050D3E7 /* Chat.swift */,
+				401B2BAC20275B410053A7CE /* ChartData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				40A2D9EF20207D0900D4D081 /* ViewController.swift in Sources */,
 				408C1F2320215B9E0066E680 /* Market.swift in Sources */,
 				40A2D9ED20207D0900D4D081 /* AppDelegate.swift in Sources */,
+				401B2BAD20275B410053A7CE /* ChartData.swift in Sources */,
 				4032A9A82021E5490050D3E7 /* Ticker.swift in Sources */,
 				408C1F162020B44F0066E680 /* BFCoinManager.swift in Sources */,
 				40C5AD5620254D2900EE7203 /* Date+Helper.swift in Sources */,

@@ -18,7 +18,8 @@ final class ViewController: UIViewController {
                         "約定履歴",
                         "板の状態",
                         "取引所の状態",
-                        "チャート"]
+                        "チャット",
+                        "Chart",]
     
     let realtimeItems = ["全てのチャンネル",
                          "マーケットチャンネル",
@@ -35,8 +36,7 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let mgr = BFLCoinManager.shared
-        mgr.addObserver(self)
+        BFLCoinManager.shared.addObserver(self)
         
     }
 
@@ -122,7 +122,12 @@ extension ViewController : UITableViewDataSource {
                 })
                 break
             case 6:
-                BFCoinAPI.requestCharts(Date(), completion: {(chats) in
+                BFCoinAPI.requestChats(Date(), completion: {(chats) in
+                    //
+                })
+                break
+            case 7:
+                BFCoinAPI.requestCharts("BTC_JPY", completion: { (data) in
                     //
                 })
                 break

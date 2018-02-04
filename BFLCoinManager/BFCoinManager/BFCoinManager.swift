@@ -21,6 +21,7 @@ final class BFLCoinManager {
 //    private var requestAPi                : BFCoinAPI
     open private(set) var realtimeApi     : BFCoinRealtimeAPI
     open private(set) var realtimeClient  : PubNub
+    open var contextLoaded = false
     
     private var observers = Array<BFLCoinManagerDataChanged>()
     
@@ -151,7 +152,7 @@ final class BFLCoinManager {
         
         //1時間前チャット。データ量が多い。。
 /*
-        BFCoinAPI.requestCharts(Date(timeIntervalSinceNow: -60*60*1), completion: {(chats) in
+        BFCoinAPI.requestChats(Date(timeIntervalSinceNow: -60*60*1), completion: {(chats) in
             
             self.context.chats = chats
         })
@@ -159,6 +160,7 @@ final class BFLCoinManager {
         
         loadNotification(self.context)
         
+        self.contextLoaded = true
         
         //Regist realtime message
         for market in self.context.markets {
