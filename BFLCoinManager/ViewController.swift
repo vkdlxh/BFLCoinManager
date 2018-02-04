@@ -35,10 +35,9 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let mgr = BFLCoinManager.sharedManager
+        let mgr = BFLCoinManager.shared
         mgr.addObserver(self)
         
-        BFLCoinManager.sharedManager.start()
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,7 +84,7 @@ extension ViewController : UITableViewDataSource {
         let menuTitle = (indexPath.section == 0) ? requestItems[indexPath.row] : realtimeItems[indexPath.row];
         print("\(menuTitle) selected.")
         
-        let mgr = BFLCoinManager.sharedManager
+        let mgr = BFLCoinManager.shared
         
         if (indexPath.section == 0) {
             //Request
@@ -192,8 +191,36 @@ extension ViewController : UITableViewDataSource {
 
 extension ViewController : BFLCoinManagerDataChanged {
     
-    func coinDataChanged(_ context:BFContext) {
-        print("context changed!!")
+    func coinDataDidLoad(_ context:BFContext) {
+        print("context loaded!!")
         //print(context)
+    }
+    
+    func coinDataChanged(channel: Channel, productCode: String, data: Any) {
+        print("context changed!!")
+        //print(data)
+        
+        if channel == Channel.board {
+            //
+        }else if channel == Channel.ticker {
+            
+            //Context更新確認
+            for ticker in BFLCoinManager.shared.context.tickers {
+                if (ticker.productCode == productCode) {
+                    print("ticker.bestBid--->\(ticker.bestBid)")
+                    break
+                }
+            }
+        }else if channel == Channel.executions {
+            
+            //!!! BUG: 更新ができてない。
+            //Context更新確認
+            if  let items = BFLCoinManager.shared.context.executions[productCode] {
+                
+                if let exeDate = items.first?.exeDate {
+                    print("exeDate--->\(exeDate)")
+                }
+            }
+        }
     }
 }

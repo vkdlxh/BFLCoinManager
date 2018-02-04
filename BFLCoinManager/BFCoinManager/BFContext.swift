@@ -10,11 +10,14 @@ import Foundation
 
 struct BFContext {
     
-    var markets = [Market]()
-    var boards  = [Board]()
-    var tickers = [Ticker]()
-    var executions = [Dictionary<String, [Execution]>]()
-    var boardStates = [Dictionary<String,BoardState>]()
-    var healths = [Dictionary<String,Health>]()
-    var chats = [Chat]()
+    static let maxRateCount = 20
+    static let maxExecutionCount = 100
+    
+    var markets     = [Market]()
+    var boards      = [[String:Board]]()
+    var tickers     = [Ticker]()
+    var executions  = [String:[Execution]]()
+    var boardStates = [String:BoardState]()
+    var healths     = [String:Health]()
+    var chats       = [Chat]()
 }

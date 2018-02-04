@@ -19,9 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         //MARK: Setup realtime Client
-        self.client = BFLCoinManager.sharedManager.realtimeClient
+        self.client = BFLCoinManager.shared.realtimeClient
         self.client.addListener(self)
-        //BFLCoinManager.sharedManager.realtimeApi.registMarketChannel("")
+        
+        BFLCoinManager.shared.start()
         
         return true
     }

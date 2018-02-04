@@ -10,7 +10,8 @@ import Foundation
 import PubNub
 
 protocol BFLCoinManagerDataChanged : AnyObject {
-    func coinDataChanged(_ context:BFContext)
+    func coinDataDidLoad(_ context:BFContext)
+    func coinDataChanged(channel: Channel, productCode: String, data:Any)
 }
 
 final class BFLCoinManager {
@@ -25,7 +26,7 @@ final class BFLCoinManager {
     
     
     //var context : Dictionary?
-    static let sharedManager: BFLCoinManager = BFLCoinManager()
+    static let shared: BFLCoinManager = BFLCoinManager()
     
     private init() {
         
@@ -67,9 +68,17 @@ final class BFLCoinManager {
         
         for observer in observers {
             //通知する
-            observer.coinDataChanged(ctx)
+            observer.coinDataDidLoad(ctx)
         }
         
+    }
+    
+    private func realtimeNotification(channel:Channel, productCode: String, data: Any) {
+        
+        for observer in observers {
+            //通知する
+            observer.coinDataChanged(channel: channel, productCode: productCode, data: data)
+        }
     }
     
     //MARK: Start
@@ -90,7 +99,9 @@ final class BFLCoinManager {
             BFCoinAPI.requestBoard(market.productCode, completion: { (board) in
                 self.keepAliveCountDown()
                 
-                self.context.boards.append(board)
+                if let productCode = market.productCode {
+                    self.context.boards.append([productCode:board])
+                }
                 
             })
             
@@ -103,12 +114,17 @@ final class BFLCoinManager {
             })
             
             self.keepAliveCountUp()
-            BFCoinAPI.requestExecutions(market.productCode, before: nil, after: nil, count: nil, completion: { (executions) in
-                self.keepAliveCountDown()
+            BFCoinAPI.requestExecutions(market.productCode,
+                                        before: nil,
+                                        after: nil,
+                                        count: BFContext.maxExecutionCount,
+                                        completion: { (executions) in
+                                            
+                                            self.keepAliveCountDown()
                 
-                if let productCode = market.productCode {
-                    self.context.executions.append([productCode:executions])
-                }
+                                            if let productCode = market.productCode {
+                                                self.context.executions[productCode] = executions
+                                            }
                 
             })
  
@@ -117,7 +133,7 @@ final class BFLCoinManager {
                 self.keepAliveCountDown()
                 
                 if let productCode = market.productCode {
-                    self.context.boardStates.append([productCode:boardState])
+                    self.context.boardStates[productCode] = boardState
                 }
             })
             
@@ -126,7 +142,7 @@ final class BFLCoinManager {
                 self.keepAliveCountDown()
                 
                 if let productCode = market.productCode {
-                    self.context.healths.append([productCode:health])
+                    self.context.healths[productCode] = health
                 }
             })
         }
@@ -134,24 +150,114 @@ final class BFLCoinManager {
         waitKeepAlive()
         
         //1時間前チャット。データ量が多い。。
+/*
         BFCoinAPI.requestCharts(Date(timeIntervalSinceNow: -60*60*1), completion: {(chats) in
             
             self.context.chats = chats
         })
+*/
         
         loadNotification(self.context)
         
         
         //Regist realtime message
+        for market in self.context.markets {
+            if let productCode = market.productCode {
+                self.realtimeApi.registChannelsAll(productCode)
+            }
+        }
+    }
+    
+    //MARK: Realtime
+    func realtimeDidReceiveMessage(_ message:Any, channel:String, timeToken:NSNumber) {
+        //print("message:\(message), channel:\(channel), timeToken:\(timeToken)")
+        
+        let productCode = self.productCode(channel: channel)
+        
+        if channel.hasPrefix(Channel.board.rawValue) {
+            //板差分
+            guard let dict = message as? [String:Any] else {
+                return
+            }
+            let diffBoard = Board(dictionary: dict)
+            //Context更新
+            self.updateContextBoard(productCode, diff: diffBoard)
+            //通知
+            self.realtimeNotification(channel: Channel.board, productCode: productCode, data: diffBoard)
+            
+        }else if channel.hasPrefix(Channel.ticker.rawValue) {
+            //Ticker
+            guard let dict = message as? [String:Any] else {
+                return
+            }
+            let diffTicker = Ticker(dictionary: dict)
+            self.updateContextTicker(productCode, diff: diffTicker)
+            self.realtimeNotification(channel: Channel.ticker, productCode: productCode, data: diffTicker)
+            
+        }else if channel.hasPrefix(Channel.executions.rawValue) {
+            //Executions
+            guard let items = message as? [Any] else {
+                return
+            }
+            
+            var diffExecutions = [Execution]()
+            for item in items {
+                if let dict = item as? [String:Any] {
+                    let execution = Execution(dictionary: dict)
+                    diffExecutions.append(execution)
+                }
+            }
+
+            self.updateContextExecution(productCode, diff: diffExecutions)
+            self.realtimeNotification(channel: Channel.executions, productCode: productCode, data: diffExecutions)
+            
+        }
+        
+        
         
     }
     
-    
-    
-    
-    //MARK: Realtime
-    func updateRealtime(_ message: PNMessageResult) {
+    private func productCode(channel:String)-> String {
         
+        let offset =
+        channel.hasPrefix(Channel.board.rawValue) ? Channel.board.rawValue.utf16.count :
+        channel.hasPrefix(Channel.ticker.rawValue) ? Channel.ticker.rawValue.utf16.count :
+        channel.hasPrefix(Channel.executions.rawValue) ? Channel.executions.rawValue.utf16.count : 0
+        
+        let productCode = String(channel[channel.index(channel.startIndex,
+                                                       offsetBy: offset)...])    //指定インデックスから終端まで
+        
+        return productCode
+    }
+    
+    private func updateContextBoard(_ productCode:String, diff: Board) {
+        
+        for dict in self.context.boards {
+            if var board = dict[productCode] {
+                board.diffUpdate(diff)
+                break
+            }
+        }
+    }
+    
+    private func updateContextTicker(_ productCode:String, diff: Ticker) {
+        
+        for (index, ticker) in self.context.tickers.enumerated() {
+            if ticker.productCode == productCode {
+                self.context.tickers.remove(at: index)
+                break
+            }
+        }
+        
+        self.context.tickers.append(diff)
+    }
+    
+    private func updateContextExecution(_ productCode:String, diff: [Execution]) {
+        
+        if var items = self.context.executions[productCode] {
+            items.insert(contentsOf: diff, at: 0)
+            items.removeLast(diff.count)
+        }
     }
     
 }

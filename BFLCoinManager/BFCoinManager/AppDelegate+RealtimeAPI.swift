@@ -28,10 +28,10 @@ extension AppDelegate : PNObjectEventListener {
             return;
         }
 
-        print("Received message: \(dataMessage) on channel \(message.data.channel) " + "at \(message.data.timetoken)")
+        //print("Received message: \(dataMessage) on channel \(message.data.channel) " + "at \(message.data.timetoken)")
         
         //更新処理
-        BFLCoinManager.sharedManager.updateRealtime(message)
+        BFLCoinManager.shared.realtimeDidReceiveMessage(dataMessage, channel:message.data.channel, timeToken:message.data.timetoken)
     }
 
     // New presence event handling.
