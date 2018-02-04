@@ -2,7 +2,7 @@
 BitFlyerで提供したApiを利用したサンプルコードです。
 Restful API, リアルタイムAPIを利用してデータを受信できます。
 
-APIの情報はこちら
+## APIの情報
 
 - BitFlyer
 
