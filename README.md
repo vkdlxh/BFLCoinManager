@@ -4,8 +4,13 @@ Restful API, リアルタイムAPIを利用してデータを受信できます�
 
 APIの情報はこちら
 
+- BitFlyer
+
 https://bitflyer.jp/ja-jp/api
 
+- チャート用
+
+https://www.cryptocompare.com/api/
 
 ## Setup
 
