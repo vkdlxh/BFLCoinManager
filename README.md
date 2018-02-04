@@ -9,7 +9,7 @@ https://bitflyer.jp/ja-jp/api
 
 ## Setup
 
-### pod install
+### CocoaPods
 
 `podfile`に下記のライブラリを追加、インストールします。
 
@@ -74,5 +74,3 @@ extension ViewController : BFLCoinManagerDataChanged {
         print("context changed!!")
     }
 ```
-
-        
